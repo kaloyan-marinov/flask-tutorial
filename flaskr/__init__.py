@@ -5,6 +5,13 @@ from flask import Flask
 
 def create_app(test_config=None):
     # create and configure the app
+    # (
+    # instance_relative_config=True tells the app that configuration files
+    # are relative to the instance folder.
+    # The instance folder is located outside the flaskr package
+    # and can hold local data that shouldn’t be committed to version control,
+    # such as configuration secrets and the database file.
+    # )
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
         SECRET_KEY='dev',
